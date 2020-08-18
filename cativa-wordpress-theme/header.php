@@ -116,12 +116,14 @@ ysyss
 <meta name="theme-color" content="#053d4e">
 
 <!-- FAVICON -->
-<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.png">
+<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon-2.png">
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/bootstrap.css" media="all" />
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/style.css" />
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/sweetalert2.min.css">
+
 <!-- ICONES -->
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/font-awesome.min.css">
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<script src="https://kit.fontawesome.com/192ea890a3.js"></script>
 
 <!-- ANIMATE -->
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/animate.css">
@@ -130,6 +132,10 @@ ysyss
 
 <!-- GOOGLE FONTS -->
 <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900&display=swap" rel="stylesheet"> <!-- font-family: 'Muli', sans-serif; -->
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- OWL -->
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/owl.carousel.min.css">
 
 <!-- CAPTCHA -->
 <script src='https://www.google.com/recaptcha/api.js'></script> 
@@ -138,6 +144,65 @@ ysyss
 
 </head>
 <body>
+
+
+
+<!-- MENU MOBILE -->
+<div class="area-mobile">
+    
+    <?php $itens_menu = wp_get_menu_array("principal"); ?> 
+                 <nav>
+                    <ul>
+                               <?php 
+                                     foreach($itens_menu as $menu){
+                                       $classe = "";
+                                       if(get_the_permalink()==$menu["url"]) $classe = "";
+                                           if(count($menu["children"])==0):
+                                ?>
+                                            <li class="<?php echo $classe; ?>"><a href="<?php echo $menu["url"]; ?>" title="<?php echo $menu["title"]; ?>"><?php echo $menu["title"]; ?></a></li>
+                                <?php
+                                           else:
+                                ?>
+                                             <li><a href="<?php echo $menu["url"]; ?>" title="<?php echo $menu["title"]; ?>"><?php echo $menu["title"]; ?> <i class="fa fa-angle-down" data-toggle="dropdown" aria-hidden="true"></i></a>
+                                                  <ul>
+                                                     <?php 
+                                                       foreach($menu["children"] as $submenu){
+                                                     ?>
+                                                        <li><a href="<?php echo $submenu["url"]; ?>" title="<?php echo $submenu["title"]; ?>"><?php echo $submenu["title"]; ?></a></li>
+                                                     <?php 
+                                                        }
+                                                     ?>
+                                                 </ul>
+                                             </li>
+                                <?php
+                                           endif;
+                                        }  
+                                ?>  
+                    </ul>
+                </nav>
+
+
+    <!-- BOTTOM -->
+    <div class="bottom social">
+                <a href="<?php the_field("link_perfil_linkedin",18); ?>" title="Nosso perfil no Linkedin" target="_blank">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/images/linkedin.svg" alt="Nosso perfil no linkedin">
+                </a>
+
+                <a href="<?php the_field("link_perfil_instagram",18); ?>" title="Nosso perfil no instagram" target="_blank">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/images/instagram.svg" alt="Nosso perfil no instagram">
+                </a>
+
+                <a href="<?php the_field("link_perfil_facebook",18); ?>" title="Nosso perfil no Facebook" target="_blank">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/images/facebook.svg" alt="Nosso perfil no facebook">
+                </a>
+
+                <a href="<?php the_field("link_perfil_pinterest",18); ?>" title="Nosso perfil no Pinterest" target="_blank">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/images/pinterest.svg" alt="Nosso perfil no pinterest">
+                </a>
+    </div>
+    <!-- BOTTOM -->
+</div>
+<!-- MENU MOBILE -->
 
 
 <!-- HEADER -->
@@ -166,7 +231,7 @@ ysyss
                                 <?php
                                            else:
                                 ?>
-                                             <li><a href="<?php echo $menu["url"]; ?>" title="<?php echo $menu["title"]; ?>"><?php echo $menu["title"]; ?> <i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i></a>
+                                             <li><a href="<?php echo $menu["url"]; ?>" title="<?php echo $menu["title"]; ?>"><?php echo $menu["title"]; ?> <i class="fa fa-angle-down" data-toggle="dropdown" aria-hidden="true"></i></a>
                                                   <ul>
                                                      <?php 
                                                        foreach($menu["children"] as $submenu){
@@ -188,19 +253,19 @@ ysyss
             <!-- SOCIAL -->
             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12 social">
                 
-                <a href="#" title="Nosso perfil no Linkedin" target="_blank">
+                <a href="<?php the_field("link_perfil_linkedin",18); ?>" title="Nosso perfil no Linkedin" target="_blank">
                     <img src="<?php bloginfo('stylesheet_directory'); ?>/images/linkedin.svg" alt="Nosso perfil no linkedin">
                 </a>
 
-                <a href="#" title="Nosso perfil no instagram" target="_blank">
+                <a href="<?php the_field("link_perfil_instagram",18); ?>" title="Nosso perfil no instagram" target="_blank">
                     <img src="<?php bloginfo('stylesheet_directory'); ?>/images/instagram.svg" alt="Nosso perfil no instagram">
                 </a>
 
-                <a href="#" title="Nosso perfil no Facebook" target="_blank">
+                <a href="<?php the_field("link_perfil_facebook",18); ?>" title="Nosso perfil no Facebook" target="_blank">
                     <img src="<?php bloginfo('stylesheet_directory'); ?>/images/facebook.svg" alt="Nosso perfil no facebook">
                 </a>
 
-                <a href="#" title="Nosso perfil no Pinterest" target="_blank">
+                <a href="<?php the_field("link_perfil_pinterest",18); ?>" title="Nosso perfil no Pinterest" target="_blank">
                     <img src="<?php bloginfo('stylesheet_directory'); ?>/images/pinterest.svg" alt="Nosso perfil no pinterest">
                 </a>
 
@@ -245,7 +310,7 @@ ysyss
                                 <?php
                                            else:
                                 ?>
-                                             <li><a href="<?php echo $menu["url"]; ?>" title="<?php echo $menu["title"]; ?>"><?php echo $menu["title"]; ?> <i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i></a>
+                                             <li><a href="<?php echo $menu["url"]; ?>" title="<?php echo $menu["title"]; ?>"><?php echo $menu["title"]; ?> <i class="fa fa-angle-down" data-toggle="dropdown" aria-hidden="true"></i></a>
                                                   <ul>
                                                      <?php 
                                                        foreach($menu["children"] as $submenu){
@@ -267,19 +332,19 @@ ysyss
             <!-- SOCIAL -->
             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12 social">
                 
-                <a href="#" title="Nosso perfil no Linkedin" target="_blank">
+                <a href="<?php the_field("link_perfil_linkedin",18); ?>" title="Nosso perfil no Linkedin" target="_blank">
                     <img src="<?php bloginfo('stylesheet_directory'); ?>/images/linkedin.svg" alt="Nosso perfil no linkedin">
                 </a>
 
-                <a href="#" title="Nosso perfil no instagram" target="_blank">
+                <a href="<?php the_field("link_perfil_instagram",18); ?>" title="Nosso perfil no instagram" target="_blank">
                     <img src="<?php bloginfo('stylesheet_directory'); ?>/images/instagram.svg" alt="Nosso perfil no instagram">
                 </a>
 
-                <a href="#" title="Nosso perfil no Facebook" target="_blank">
+                <a href="<?php the_field("link_perfil_facebook",18); ?>" title="Nosso perfil no Facebook" target="_blank">
                     <img src="<?php bloginfo('stylesheet_directory'); ?>/images/facebook.svg" alt="Nosso perfil no facebook">
                 </a>
 
-                <a href="#" title="Nosso perfil no Pinterest" target="_blank">
+                <a href="<?php the_field("link_perfil_pinterest",18); ?>" title="Nosso perfil no Pinterest" target="_blank">
                     <img src="<?php bloginfo('stylesheet_directory'); ?>/images/pinterest.svg" alt="Nosso perfil no pinterest">
                 </a>
 

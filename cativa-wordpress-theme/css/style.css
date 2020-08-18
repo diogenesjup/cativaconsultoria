@@ -109,9 +109,82 @@ a, a:hover{
 
 
 /*---------------------------------
-	OUTROS ESTILOS
+	MENU MOBILE
 -----------------------------------*/
+.area-mobile{
+  position:fixed;
+  display:block;
+  width: 100%; 
+  height: calc(100% - 69px);
+  overflow-y:scroll;
+  padding-top:18px;
+  padding-left:30px;
+  padding-right: 30px;
+  padding-bottom: 55px;
+  background:#F2B544;
+  top:-169%;
+  z-index:999;
+  -webkit-transition:all 550ms ease;-moz-transition:all 550ms ease;transition:all 550ms ease;
+}
+.area-mobile::-webkit-scrollbar-track {
+          background-color: #F4F4F4;
+      }
+.area-mobile::-webkit-scrollbar {
+          width: 1px;
+          background: #F4F4F4;
+      }
+.area-mobile::-webkit-scrollbar-thumb {
+          background: #ccc;
+      }
 
+.area-mobile nav ul{
+  padding-left:0;
+  margin-left:0px;
+}
+
+.area-mobile nav ul li{
+      list-style: none;
+    padding-bottom: 5px;
+}
+
+.area-mobile nav ul li a, .area-mobile nav ul li a:hover{
+  color: #1D2B59;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.area-mobile nav ul li.submenu a, .area-mobile nav ul li.submenu a:hover{
+  color: #465173;
+  font-weight: 500;
+  padding-left: 23px;
+  font-size:17px;
+}
+
+
+.area-mobile .bottom.social{
+   position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background: #1D2B59;
+    z-index: 100;
+    left: 0;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.area-mobile .bottom.social a,
+.area-mobile .bottom.social a:hover{
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.area-mobile .bottom.social a img{
+  width: 38px;
+  height: auto;
+}
 
 /*---------------------------------
   HEADER
@@ -145,9 +218,13 @@ header .logo{
 }
 
 @media(max-width: 540px){
+  header.fixo{
+    top:0px !important;
+  }
   header .logo{
     padding-top: 10px;
     padding-bottom: 15px;
+    text-align:left;
   }
 }
 
@@ -325,6 +402,19 @@ section.titulo{
   text-align: center;
 }
 
+section.titulo.titulo-pagina{
+  background: url("../images/banner-pagina.png") #F2B544 no-repeat;
+  background-size: cover;
+  background-position: center center;
+  text-align:left;
+}
+
+@media(max-width:540px){
+  section.titulo.titulo-pagina{
+    text-align:center;
+  }
+}
+
 section.titulo.titulo-interna{
   background: url("../images/capa-interna.png") #F2B544 no-repeat;
   background-size: cover;
@@ -343,6 +433,10 @@ section.titulo h1{
   text-align: center;
   text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 
+}
+
+section.titulo.titulo-pagina h1{
+  text-align:left;
 }
 
 @media(max-width: 540px){
@@ -614,6 +708,28 @@ article iframe{
     margin-bottom: 4px;
 }
 
+.work.somos-pagina .btn-primary,
+.work.somos-pagina .btn-primary:hover,
+.work.somos-pagina .btn-primary:active,
+.work.somos-pagina .btn-primary:focus,
+.work.somos-pagina .btn-primary:visited{
+    font-family: 'Muli', sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top:30px;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(#465173 0%, #1d2b59 100%) !important;
+    border: none !important;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
 /*---------------------------------
   WORK
 -----------------------------------*/
@@ -713,6 +829,10 @@ section.work .loop .caixa-postagem .postagem{
         padding-bottom: 20px;
         background: #fff;
         filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
+  }
+
+  section.artigos-na-home .caixa-postagem .postagem{
+        height: 435px !important;
   }
 }
 
@@ -840,7 +960,7 @@ section.work.artigos-relacionados{
     background: #F2F0ED;
     height: 465px;
     margin-bottom: 170px;
-    padding-top: 75px;
+    padding-top: 44px;
 }
 
 @media(max-width: 540px){
@@ -851,8 +971,28 @@ section.work.artigos-relacionados{
       height: auto;
       min-height: 465px;
       margin-bottom: 40px;
-      padding-top: 75px;
+      padding-top: 48px;
   }
+}
+
+section.work.artigos-relacionados.artigos-na-home{
+  height:auto;
+  padding-bottom: 48px;
+  margin-bottom:0px;
+}
+
+section.work.artigos-relacionados.artigos-na-home .row.loop#loopArtigosHomepage{
+  display: none;
+}
+
+@media(max-width:540px){
+    section.work.artigos-relacionados.artigos-na-home .row.loop{
+      display:none;
+    }
+    section.work.artigos-relacionados.artigos-na-home .row.loop#loopArtigosHomepage{
+      display:flex;
+      width: 110%; 
+    }
 }
 
 section.work.artigos-relacionados h2{
@@ -1015,6 +1155,10 @@ footer .btn-primary {
             padding-top: 18px;
             padding-bottom: 42px;
         }
+        section.newsletter .form-group {
+            margin-bottom: 1rem;
+            width: 99%;
+        }
       }
 
       section.newsletter h3{
@@ -1150,3 +1294,903 @@ footer .btn-primary {
         font-size: 12px;
         padding-top: 15px;
       }
+
+
+
+
+/***********************************/
+/*          NOVAS PÁGINAS          */
+/***********************************/
+section.super-banner{
+  position: relative;
+  display:block;
+  width: 100%;
+  height: 540px;
+  padding-top:50px;
+  padding-bottom: 200px;
+}
+
+
+@media(max-width:540px){
+   section.super-banner{
+    height:452px;
+    padding-top:90px;
+   }
+}
+
+
+section.super-banner .container{
+  position: relative; 
+  z-index: 2;
+  padding-top:65px;
+}
+
+@media(max-width: 540px){
+  section.super-banner .container{
+    padding-top:0px;
+  }
+  section.super-banner .container .conteudo-super-banner{
+    text-align: center;
+  }
+}
+
+
+section.super-banner .container h1{
+   font-family: 'Muli', sans-serif;
+   font-weight: bold;
+   color: #fff;
+   text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+   font-size: 46px;
+   line-height: 44px;
+   margin-bottom: 24px;
+}
+
+@media(max-width:540px){
+  section.super-banner .container h1 {
+      font-family: 'Muli', sans-serif;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+      font-size: 27px;
+      line-height: 28px;
+      margin-bottom: 10px;
+  }
+}
+
+section.super-banner .container h1 small{
+   color: #465173;
+   font-family: 'Muli', sans-serif; 
+   font-weight:bold;
+   text-transform:uppercase;
+   display:block;
+   font-size:16px;
+   padding-bottom:10px;
+}
+
+section.super-banner .container p{
+  color: #050A18; 
+  font-weight:normal;
+  font-family: 'Muli', sans-serif; 
+  font-weight: 300;
+  line-height:20px;
+  margin-bottom: 28px;
+}
+
+section.super-banner .container .btn-primary,
+section.super-banner .container .btn-primary:active,
+section.super-banner .container .btn-primary:focus,
+section.super-banner .container .btn-primary:hover
+section.super-banner .container .btn-primary:visited{
+    font-family: 'Muli', sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(#465173 0%, #1d2b59 100%) !important;
+    border:none !important;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+@media(max-width: 540px){
+      section.super-banner .container .btn-primary, section.super-banner .container .btn-primary:active, section.super-banner .container .btn-primary:focus, section.super-banner .container .btn-primary:hover section.super-banner .container .btn-primary:visited {
+        font-family: 'Muli', sans-serif;
+        font-weight: normal;
+        font-size: 13px;
+        padding-left: 28px;
+        padding-right: 28px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        text-transform: uppercase;
+        color: #fff;
+        width: 82%;
+        background: linear-gradient(#465173 0%, #1d2b59 100%) !important;
+        border: none !important;
+        -webkit-transition: all 300ms ease;
+        -moz-transition: all 300ms ease;
+        transition: all 300ms ease;
+    }
+}
+
+
+/*
+{
+  background: #1d2b59 !important;
+}
+*/
+
+/*   VÍDEO DO BANNER   */
+.homepage-hero-module {
+    border-right: none;
+    border-left: none;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .no-video .video-container video,
+  .touch .video-container video {
+    display: none;
+  }
+
+  .no-video .video-container .poster,
+  .touch .video-container .poster {
+    display: block !important;
+  }
+
+  .video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 540px;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+  }
+
+  .video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: url("../images/bg.png") transparent no-repeat;
+    background-size:cover;
+    background-position: center center;
+    width: 100%;
+    height: 540px;
+  }
+
+  @media(max-width:540px){
+      .video-container {
+          position: relative;
+          bottom: 0%;
+          left: 0%;
+          height: 452px;
+          width: 100%;
+          overflow: hidden;
+          background: #000;
+        }
+        .video-container .filter {
+          z-index: 100;
+          position: absolute;
+          background: url("../images/bg.png") transparent no-repeat;
+          background-size:cover;
+          background-position: center center;
+          width: 100%;
+          height: 452px;
+        }
+  }
+
+  .video-container video {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+  }
+
+  .video-container video.fillWidth {
+    width: 100%;
+  }
+
+
+
+
+  section.tres-destaques{
+    position: relative;
+    display: block;
+    padding-top: 65px;
+    padding-bottom:0px;
+    text-align: center;
+    z-index:100;
+  }
+
+@media(max-width: 540px){
+  section.tres-destaques {
+      position: relative;
+      display: block;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      text-align: center;
+      z-index: 100;
+      margin-top: -50px;
+  }
+}
+
+  section.tres-destaques img{
+    width: 110px;
+    height: auto;
+    border-bottom: 3px solid #F2B544;
+    margin-bottom: 8px;
+    padding-bottom: 12px;
+  }
+
+  section.tres-destaques .colunas .caixa{
+    position:relative;
+    display: block;
+    height:378px;
+    padding:30px;
+    background: #f2f0ed;
+    border:1px solid #c9c4be;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+  
+    section.tres-destaques .colunas .caixa:hover{
+    position:relative;
+    display: block;
+    height:378px;
+    padding:30px;
+    background: #fff;
+    border:1px solid #c9c4be;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    transition: all 300ms ease;
+  }
+
+  @media(max-width: 540px){
+    section.tres-destaques .colunas .caixa {
+        position: relative;
+        display: block;
+        height: 378px;
+        width: 87%;
+        padding: 30px;
+        margin-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        background: #f2f0ed;
+        border: 1px solid #c9c4be;
+        -webkit-transition: all 300ms ease;
+        -moz-transition: all 300ms ease;
+        transition: all 300ms ease;
+    }
+  }
+
+
+  section.tres-destaques .colunas .caixa h3{
+    color: #1D2B59;
+    font-family: 'Muli', sans-serif;
+    font-weight:bold;
+    font-size:20px;
+  }
+
+
+  section.tres-destaques .colunas .caixa p{
+  color: #050A18;
+  font-size:14px;
+  line-height:18px;
+}
+
+
+
+
+section.a-cativa-consultoria{
+  position:relative;
+  display: block;
+  padding-top:150px;
+  padding-bottom:95px;
+  background: url("../images/backgorund-sobre-a-cativa.png") #465173 no-repeat;
+  background-size:100% auto;
+  background-position:bottom;
+  margin-top:-75px;
+  z-index:50;
+}
+
+section.a-cativa-consultoria img{
+  width:100%;
+  height:auto;
+}
+
+section.a-cativa-consultoria h2{
+  font-weight:bold; 
+  color: #F2B544;
+  margin-bottom:26px;
+}
+
+section.a-cativa-consultoria p{
+  color: #fff;
+  font-size:14px;
+}
+
+section.a-cativa-consultoria .coluna-dois{
+  padding-top: 50px;
+}
+
+@media(max-width: 540px){
+  section.a-cativa-consultoria {
+      position: relative;
+      display: block;
+      padding-top: 150px;
+      padding-bottom: 95px;
+      background: url(../images/backgorund-sobre-a-cativa.png) #465173 no-repeat;
+      background-size: 165% auto;
+      background-position: bottom;
+      margin-top: -75px;
+      z-index: 50;
+  }
+
+  section.a-cativa-consultoria .coluna-um{
+    display:none;
+  }
+  section.a-cativa-consultoria .coluna-dois {
+      padding-top: 0px;
+      text-align: center;
+  }
+  section.a-cativa-consultoria h2 {
+      font-weight: bold;
+      color: #F2B544;
+      margin-bottom: 26px;
+      font-size: 40px;
+  }
+  section.a-cativa-consultoria p {
+      color: #fff;
+      font-size: 18px;
+  }
+}
+
+
+section.a-cativa-consultoria .container .btn-primary,
+section.a-cativa-consultoria .container .btn-primary:active,
+section.a-cativa-consultoria .container .btn-primary:focus,
+section.a-cativa-consultoria .container .btn-primary:hover
+section.a-cativa-consultoria .container .btn-primary:visited{
+    font-family: 'Muli', sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    color: #fff;
+
+    background: linear-gradient(#f2b544 0%, #b58327 100%) !important;
+
+    border:none !important;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+
+@media(max-width:540px){
+  section.a-cativa-consultoria .container .btn-primary, section.a-cativa-consultoria .container .btn-primary:active, section.a-cativa-consultoria .container .btn-primary:focus, section.a-cativa-consultoria .container .btn-primary:hover section.a-cativa-consultoria .container .btn-primary:visited {
+    font-family: 'Muli', sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    text-transform: uppercase;
+    color: #fff;
+    width: 86%;
+    margin-top: 27px;
+    background: linear-gradient(#f2b544 0%, #b58327 100%) !important;
+    border: none !important;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+}
+
+
+
+section.assessoria-completa{
+  position:relative;
+  display:block;
+  padding-top:75px;
+  padding-bottom:60px;
+  background:url("../images/background-assessoria.png") transparent no-repeat;
+  background-size:350px auto;
+  background-position:left;
+}
+
+@media(max-width:540px){
+  section.assessoria-completa{
+    display:none;
+  }
+}
+
+
+section.assessoria-completa .coluna-um h3{
+   font-family: 'Muli', sans-serif;
+   font-weight:bold;
+   color: #F2B544;
+}
+
+section.assessoria-completa .coluna-um h3 span{
+   font-family: 'Muli', sans-serif;
+   font-weight:bold;
+   color: #1D2B59;
+   padding-left: 40px;
+}
+
+
+section.assessoria-completa .coluna-dois p{
+  color: #465173;
+  font-weight:500;
+}
+
+
+
+section.saude-financeira{
+  position:relative;
+  display:block;
+  width:100%;
+  height:auto;
+  padding-top:50px;
+  padding-bottom:50px;
+  background: url("../images/bg-saude.png") transparent no-repeat;
+  background-size:cover;
+  background-position: center center;
+}
+
+section.saude-financeira h2{
+   font-family: 'Muli', sans-serif;
+   font-weight: bold;
+   color: #1D2B59;
+   margin-bottom: 0px;
+   font-size: 28px;
+}
+
+@media(max-width: 540px){
+  section.saude-financeira {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: url(../images/bg-saude.png) transparent no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin-bottom: 0px;
+}
+
+  section.saude-financeira h2 {
+    font-family: 'Muli', sans-serif;
+    font-weight: bold;
+    color: #1D2B59;
+    margin-bottom: 0px;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+}
+
+section.saude-financeira p{
+   font-family: 'Muli', sans-serif;
+   color: #fff;
+   font-size: 20px;
+   font-weight: 300;
+}
+
+section.saude-financeira img{
+  width: 70px;
+  height: auto;
+}
+
+section.saude-financeira .btn-primary{
+   font-weight: bold;
+   padding-left: 35px;
+   padding-right: 35px;
+   padding-top: 9px;
+   padding-bottom: 9px;
+   font-size: 13px;
+   border-radius: 3px;
+   background: linear-gradient(#465173 0%, #1d2b59 100%) !important;
+   border:none !important;
+}
+
+
+@media(max-width:540px){
+  section.saude-financeira .btn-primary {
+      font-weight: bold;
+      padding-left: 35px;
+      padding-right: 35px;
+      padding-top: 13px;
+      padding-bottom: 13px;
+      margin-top: 15px;
+      font-size: 13px;
+      width: 86%;
+      border-radius: 3px;
+      background: linear-gradient(#465173 0%, #1d2b59 100%) !important;
+      border: none !important;
+  }
+}
+
+section.artigos-relacionados{
+
+}
+
+section.artigos-relacionados .titulo h2{
+    background: url(../images/bg-ultimos-artigos.png) transparent no-repeat;
+    background-size: 200px auto;
+    background-position: bottom;
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+
+
+
+.ver-todos-posts {
+    margin-top: -12px;
+}
+
+@media(max-width: 540px){
+  .ver-todos-posts {
+      margin-top: -12px;
+      text-align: center !important;
+      padding-left:40px;
+  }
+}
+
+.ver-todos-posts a,
+.ver-todos-posts a:hover{
+  font-family: 'Muli', sans-serif;
+  color: #1D2B59;
+  text-decoration: none;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.ver-todos-posts a img{
+    width: 27px;
+    margin-left: 6px;
+    margin-top: -4px;
+}
+
+
+
+section.planejamento-financeiro{
+  position: relative;
+  display: block;
+  padding-top: 56px;
+  padding-bottom: 20px;
+  background:url("../images/bg-planejamento-financeiro.png") #f2f2f2 no-repeat;
+  background-size:cover;
+  background-position:center center;
+  text-align:center;
+}
+
+
+section.planejamento-financeiro h2{
+  font-weight:bold;
+  color: #1D2B59;
+  font-size:30px; 
+}
+
+@media(max-width:540px){
+  section.planejamento-financeiro h2 {
+    font-weight: bold;
+    color: #1D2B59;
+    font-size: 24px;
+}
+}
+
+
+section.planejamento-financeiro p{
+   color: #1D2B59;
+   margin-bottom:32px;
+}
+
+@media(max-width: 540px){
+    section.planejamento-financeiro p {
+      color: #1D2B59;
+      margin-bottom: 32px;
+      padding-left: 30px;
+      padding-right: 30px;
+  }
+}
+
+section.planejamento-financeiro .container .btn-primary,
+section.planejamento-financeiro .container .btn-primary:active,
+section.planejamento-financeiro .container .btn-primary:focus,
+section.planejamento-financeiro .container .btn-primary:hover
+section.planejamento-financeiro .container .btn-primary:visited{
+    font-family: 'Muli', sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius:2px;
+    background: linear-gradient(#465173 0%, #1d2b59 100%) !important;
+    border:none !important;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+
+@media(max-width:540px){
+    section.planejamento-financeiro .container .btn-primary,
+    section.planejamento-financeiro .container .btn-primary:active,
+    section.planejamento-financeiro .container .btn-primary:focus,
+    section.planejamento-financeiro .container .btn-primary:hover
+    section.planejamento-financeiro .container .btn-primary:visited{
+        font-family: 'Muli', sans-serif;
+        font-weight: normal;
+        font-size: 13px;
+        padding-left: 28px;
+        padding-right: 28px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        display:block;
+        text-transform: uppercase;
+        color: #fff;
+        border-radius:2px;
+        background: linear-gradient(#465173 0%, #1d2b59 100%) !important;
+        border:none !important;
+        -webkit-transition: all 300ms ease;
+        -moz-transition: all 300ms ease;
+        transition: all 300ms ease;
+    }
+
+}
+
+
+
+section.depoimentos{
+  text-align:center;
+  background:#fff;
+  padding-top:70px;
+  padding-bottom:32px;
+}
+
+
+
+section.depoimentos .titulo-sessao h2{
+  font-weight:bold;
+  color: #F2B544;
+  font-size:30px; 
+  margin-bottom:40px;
+}
+
+
+section.depoimentos h4{
+  color: #050A18;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 32px;
+  margin-bottom: 22px;
+  font-style: normal;
+}
+
+section.depoimentos .imagem-perfil{
+  position:relative;
+  display: block;
+  width:58px;
+  height:58px;
+  border-radius:100px;
+  margin-left:auto;
+  margin-right: auto;
+  margin-bottom:12px;
+}
+
+@media(max-width:540px){
+  section.depoimentos .imagem-perfil{
+    display:none;
+  }
+}
+
+section.depoimentos h5{
+   font-weight:bold;
+   color: #1D2B59;
+   font-size:16px;
+}
+
+@media(max-width:540px){
+   section.depoimentos h5 {
+      font-weight: bold;
+      color: #1D2B59;
+      font-size: 20px;
+  }
+}
+
+section.depoimentos h5 small{
+      font-weight: 300;
+    color: #465173;
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+
+
+
+
+section.depoimentos #carousel-custom-dots{
+  padding-left: 0px;
+  margin-left: 0px;
+  text-align: center;
+  z-index: 505;
+  padding-top:24px;
+}
+section.depoimentos #carousel-custom-dots li{
+  cursor: pointer;
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 100%;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+  background: #f2f2f2;
+  border-radius:100%;
+}
+
+section.depoimentos #carousel-custom-dots li.owl-dot.active{
+  background: #747474;
+  /* box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.11); */
+}
+
+
+.imagem-destaque-pagina{
+
+}
+
+.imagem-destaque-pagina img{
+  width:100%;
+  height:auto;
+  margin-top:-138px;
+}
+
+
+.imagem-destaque-pagina form{
+  margin-top:-66px;
+}
+
+@media(max-width:540px){
+      .imagem-destaque-pagina img {
+        width: 100%;
+        height: auto;
+        margin-top: 18px;
+    }
+    .imagem-destaque-pagina form{
+      margin-top: 18px;
+    }
+}
+
+.imagem-destaque-pagina p{
+  text-align: right;
+}
+.imagem-destaque-pagina p img{
+   margin-top: 27px;
+   width: 62%;
+}
+
+
+
+
+
+.somos-pagina.somos-pagina-contato h4{
+  font-weight: 300;
+  color: #050A18;
+  margin-top: 0px;
+  font-size: 22px;
+}
+
+@media(max-width:540px){
+   .somos-pagina.somos-pagina-contato h4{
+    text-align: left;
+    font-size:20px;
+   }
+}
+
+.somos-pagina.somos-pagina-contato h4 i{
+  padding-right: 10px;
+}
+
+.somos-pagina.somos-pagina-contato h4.email{
+  font-size: 16px;
+} 
+
+@media(max-width:540px){
+   .somos-pagina.somos-pagina-contato h4 i{
+    display: none;
+   }
+}
+
+.somos-pagina.somos-pagina-contato .social{
+  padding-top: 15px;
+}
+@media (max-width: 540px){
+  .somos-pagina.somos-pagina-contato .social {
+      text-align: left;
+      margin-top: -25px;
+      margin-bottom: 30px;
+  }
+}
+
+
+.somos-pagina.somos-pagina-contato .social a,
+.somos-pagina.somos-pagina-contato .social a:hover{
+  text-decoration: none;
+}
+
+.somos-pagina.somos-pagina-contato .social img{
+    width: 32px;
+    margin-right: 12px;
+}
+
+
+.a-cativa-consultoria .caixa{
+   position:relative;
+   display: block;
+   height:270px;
+   padding:30px;
+   border-radius: 2px;
+   background: #fff;
+   border: 1px solid #c9c4be;
+   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+   -webkit-transition: all 300ms ease;
+   -moz-transition: all 300ms ease;
+   transition: all 300ms ease;
+   margin-top:30px;
+}
+
+.a-cativa-consultoria .caixa h3{
+    color: #1D2B59;
+    font-family: 'Muli', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 3px solid #F2B544;
+    margin-bottom: 8px;
+    padding-bottom: 12px;
+    text-align: center;
+  }
+
+.a-cativa-consultoria .caixa p {
+    color: #050A18;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+@media(max-width:540px){
+  .a-cativa-consultoria-mobile{
+    padding-top: 54px !important;
+    height: auto !important;
+    margin-bottom: 130px !important;
+    margin-top: 60px !important;
+  }
+}
